@@ -27,12 +27,14 @@ export function FAQ() {
                 <button
                   onClick={() => handleToggle(item.question)}
                   className="w-full text-left flex justify-between items-center font-semibold text-forest-dark"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${item.question}`}
                 >
                   {item.question}
-                  <span>{isOpen ? '−' : '+'}</span>
+                  <span aria-hidden="true">{isOpen ? '−' : '+'}</span>
                 </button>
                 {isOpen && (
-                  <p className="mt-3 text-gray-700 text-sm leading-relaxed">{item.answer}</p>
+                  <p id={`faq-answer-${item.question}`} className="mt-3 text-gray-700 text-sm leading-relaxed">{item.answer}</p>
                 )}
               </div>
             )
