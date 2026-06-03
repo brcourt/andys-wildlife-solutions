@@ -37,6 +37,6 @@ describe('About', () => {
       </MemoryRouter>
     )
     const phoneLink = screen.getByRole('link', { name: /Call/ })
-    expect(phoneLink).toHaveAttribute('href', 'tel:5550000000')
+    expect(phoneLink).toHaveAttribute('href', 'tel:3177906240')
   })
 })

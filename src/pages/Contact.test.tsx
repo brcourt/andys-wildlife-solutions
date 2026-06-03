@@ -14,14 +14,14 @@ describe('Contact', () => {
     )
   })
 
-  it('renders phone link with href="tel:5550000000"', () => {
+  it('renders phone link with href="tel:3177906240"', () => {
     render(
       <MemoryRouter>
         <Contact />
       </MemoryRouter>
     )
-    const phoneLink = screen.getByRole('link', { name: /\(555\) 000-0000/ })
-    expect(phoneLink).toHaveAttribute('href', 'tel:5550000000')
+    const phoneLink = screen.getByRole('link', { name: /317-790-6240/ })
+    expect(phoneLink).toHaveAttribute('href', 'tel:3177906240')
   })
 
   it('renders form with name, phone, and message fields', () => {

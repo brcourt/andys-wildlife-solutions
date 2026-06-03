@@ -7,7 +7,7 @@ describe('Nav', () => {
   it('renders the company name and phone number', () => {
     render(<MemoryRouter><Nav /></MemoryRouter>)
     expect(screen.getByText(/Andy's Wildlife Solutions/i)).toBeInTheDocument()
-    expect(screen.getByText(/555.*000.*0000/)).toBeInTheDocument()
+    expect(screen.getByText(/317.*790.*6240/)).toBeInTheDocument()
   })
 
   it('renders navigation links', () => {

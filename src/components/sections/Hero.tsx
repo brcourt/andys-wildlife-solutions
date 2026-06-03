@@ -19,9 +19,14 @@ export function Hero({ variant, headline, subheadline, breadcrumb }: HeroProps) 
         {isHome && (
           <p className="text-white/70 text-sm uppercase tracking-widest mb-4">Serving {COMPANY.serviceArea}</p>
         )}
-        <h1 className={`font-extrabold leading-tight mb-4 ${isHome ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl'}`}>
+        <h1 className={`font-bold leading-tight mb-3 ${isHome ? 'text-5xl sm:text-6xl' : 'text-3xl sm:text-4xl'}`}>
           {headline}
         </h1>
+        {isHome && (
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/25 rounded-full px-5 py-1.5 text-white/80 text-xs font-semibold uppercase tracking-[0.15em] mb-5">
+            Locally Owned · Community Focused
+          </div>
+        )}
         <p className={`text-white/85 mb-8 max-w-xl mx-auto ${isHome ? 'text-lg' : 'text-base'}`}>
           {subheadline}
         </p>

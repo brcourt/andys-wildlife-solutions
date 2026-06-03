@@ -9,7 +9,7 @@ describe('Home', () => {
         <Home />
       </MemoryRouter>
     )
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Wildlife Problems? We\'ve Got You Covered.')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Protecting Your Home.')
   })
 
   it('renders the CtaBand headline', () => {

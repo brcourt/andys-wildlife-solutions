@@ -28,8 +28,23 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-800 text-center text-xs py-4 text-gray-600">
-        © {new Date().getFullYear()} {COMPANY.name} · Licensed & Insured · {COMPANY.city}, {COMPANY.state}
+
+      <div className="border-t border-gray-800 text-center py-4">
+        <p className="text-amber text-sm italic mb-1">{COMPANY.tagline} 🐾</p>
+        <p className="text-gray-600 text-xs">© {new Date().getFullYear()} {COMPANY.name} · Licensed & Insured · {COMPANY.city}, {COMPANY.state}</p>
+      </div>
+
+      {/* Pine tree silhouette */}
+      <div aria-hidden="true" className="overflow-hidden" style={{ height: 48 }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" preserveAspectRatio="xMidYMax slice" className="w-full h-full">
+          <defs>
+            <pattern id="treeline" x="0" y="0" width="120" height="48" patternUnits="userSpaceOnUse">
+              <polygon points="35,4 10,42 30,42 30,48 40,48 40,42 60,42" fill="#263d12" />
+              <polygon points="90,14 69,42 85,42 85,48 95,48 95,42 111,42" fill="#263d12" />
+            </pattern>
+          </defs>
+          <rect width="1440" height="48" fill="url(#treeline)" />
+        </svg>
       </div>
     </footer>
   )

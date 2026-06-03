@@ -12,8 +12,8 @@ export function Home() {
     <main>
       <Hero
         variant="home"
-        headline="Wildlife Problems? We've Got You Covered."
-        subheadline={`Licensed & insured removal of raccoons, squirrels, snakes, rodents, and more. Serving ${COMPANY.serviceArea}.`}
+        headline="Protecting Your Home."
+        subheadline={`Restoring your peace of mind — we humanely remove unwanted wildlife and seal your home to keep them out for good. Serving ${COMPANY.serviceArea}.`}
       />
       <TrustBar />
       <ServicesGrid />

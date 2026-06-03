@@ -6,6 +6,6 @@ describe('CtaBand', () => {
   it('renders the headline and phone link', () => {
     render(<MemoryRouter><CtaBand headline="Ready to help?" subheadline="Call us today." /></MemoryRouter>)
     expect(screen.getByText('Ready to help?')).toBeInTheDocument()
-    expect(screen.getByRole('link')).toHaveAttribute('href', 'tel:5550000000')
+    expect(screen.getByRole('link')).toHaveAttribute('href', 'tel:3177906240')
   })
 })

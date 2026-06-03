@@ -5,12 +5,16 @@ export const servicesData: ServiceData[] = [
     slug: 'wildlife-removal',
     title: 'Wildlife Removal',
     emoji: '🦝',
-    heroDescription: 'Safe, professional removal of raccoons, squirrels, and opossums from your home or property.',
+    heroDescription: 'Safe, professional removal of raccoons, squirrels, opossums, skunks, beavers, muskrats, moles, and more from your home or property.',
     animalsLabel: 'Animals We Remove',
     animals: [
       { emoji: '🦝', name: 'Raccoons' },
       { emoji: '🐿️', name: 'Squirrels' },
       { emoji: '🐾', name: 'Opossums' },
+      { emoji: '🦨', name: 'Skunks' },
+      { emoji: '🦫', name: 'Beavers' },
+      { emoji: '🐭', name: 'Muskrats' },
+      { emoji: '🐀', name: 'Moles' },
     ],
     warningSignsLabel: 'Signs You Have a Problem',
     warningSigns: [
