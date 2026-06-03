@@ -21,7 +21,7 @@ export function Contact() {
         return { status: 'error' }
       }
     },
-    { status: 'idle' }
+    { status: 'idle' as const }
   )
 
   return (
