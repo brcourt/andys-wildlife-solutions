@@ -1,9 +1,14 @@
 import { COMPANY } from '../config'
 
+const values = [
+  { icon: '🐾', title: 'Humane Methods', description: 'We use exclusion and live trapping whenever possible.' },
+  { icon: '🔍', title: 'Honest Assessments', description: 'We tell you exactly what the problem is — no upselling.' },
+  { icon: '🏠', title: 'Your Home, Protected', description: 'Every entry point sealed. Every job finished right.' },
+]
+
 export function About() {
   return (
     <main>
-      {/* Hero Section */}
       <section className="bg-forest-dark text-white py-16">
         <div className="max-w-3xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">About Andy's Wildlife Solutions</h1>
@@ -11,7 +16,6 @@ export function About() {
         </div>
       </section>
 
-      {/* Story Section */}
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6 text-forest-dark">Our Story</h2>
@@ -24,31 +28,17 @@ export function About() {
         </div>
       </section>
 
-      {/* Values Section */}
       <section className="bg-mint-light py-16">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center text-forest-dark">What We Stand For</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1: Humane Methods */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="text-4xl mb-4">🐾</div>
-              <h3 className="text-xl font-bold text-forest-dark mb-3">Humane Methods</h3>
-              <p className="text-gray-700">We use exclusion and live trapping whenever possible.</p>
-            </div>
-
-            {/* Card 2: Honest Assessments */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="text-4xl mb-4">🔍</div>
-              <h3 className="text-xl font-bold text-forest-dark mb-3">Honest Assessments</h3>
-              <p className="text-gray-700">We tell you exactly what the problem is — no upselling.</p>
-            </div>
-
-            {/* Card 3: Your Home Protected */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="text-4xl mb-4">🏠</div>
-              <h3 className="text-xl font-bold text-forest-dark mb-3">Your Home, Protected</h3>
-              <p className="text-gray-700">Every entry point sealed. Every job finished right.</p>
-            </div>
+            {values.map(v => (
+              <div key={v.title} className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="text-2xl mb-2">{v.icon}</div>
+                <h3 className="text-xl font-bold text-forest-dark mb-3">{v.title}</h3>
+                <p className="text-gray-700">{v.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
