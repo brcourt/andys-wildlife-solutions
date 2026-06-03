@@ -1,0 +1,8 @@
+apiVersion: v2
+name: andy-wildlife-ui
+description: Andy's Wildlife Solutions — static SPA served via nginx-unprivileged
+type: application
+# version: chart schema version. Bump when chart templates or values change.
+# appVersion: tracks the UI image release (not the chart). Independent.
+version: 0.1.0
+appVersion: "1.0.0"

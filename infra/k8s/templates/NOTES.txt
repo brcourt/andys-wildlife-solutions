@@ -1,0 +1,17 @@
+Andy's Wildlife Solutions UI has been installed in namespace {{ .Release.Namespace }}.
+
+Access the site:
+{{- if .Values.ingress.enabled }}
+  https://{{ .Values.ingress.host }}/
+{{- else }}
+  kubectl port-forward -n {{ .Release.Namespace }} svc/{{ include "andy-wildlife-ui.fullname" . }} 8080:{{ .Values.service.port | default 80 }}
+  Then open http://localhost:8080
+{{- end }}
+
+TLS:
+  Add cert-manager annotations and a tls[] entry in values.yaml to enable
+  automatic certificate provisioning. Example in values.yaml comments.
+
+Contact form:
+  The Formspree endpoint is baked into the image at build time (src/config.ts).
+  To change it, update COMPANY.formspreeEndpoint and rebuild the image.

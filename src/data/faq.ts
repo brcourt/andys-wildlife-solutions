@@ -1,4 +1,5 @@
 import type { FAQItem } from '../types'
+import { COMPANY } from '../config'
 
 export const faqItems: FAQItem[] = [
   {
@@ -27,7 +28,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: 'What areas do you serve?',
-    answer: 'We serve [City] and the surrounding suburbs. Call us and we can confirm whether your address falls within our service area.',
+    answer: `We serve ${COMPANY.serviceArea}. Call us and we can confirm whether your address falls within our service area.`,
   },
   {
     question: 'Can you repair the damage animals caused?',
@@ -35,7 +36,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: 'Are you licensed and insured?',
-    answer: 'Yes. Andy\'s Wildlife Solutions is fully licensed and insured to operate in [State]. We carry liability insurance so your home is protected.',
+    answer: `Yes. ${COMPANY.name} is fully licensed and insured to operate in ${COMPANY.state}. We carry liability insurance so your home is protected.`,
   },
   {
     question: 'What if I\'m not sure what animal I have?',

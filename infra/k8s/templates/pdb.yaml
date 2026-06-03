@@ -1,0 +1,14 @@
+{{- if gt (int .Values.replicaCount) 1 }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "andy-wildlife-ui.fullname" . }}
+  labels:
+    {{- include "andy-wildlife-ui.labels" . | nindent 4 }}
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "andy-wildlife-ui.name" . }}
+      app.kubernetes.io/component: ui
+{{- end }}

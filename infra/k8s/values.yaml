@@ -1,0 +1,45 @@
+image:
+  # Pin to a specific release tag. Never deploy :latest to a cluster.
+  repository: ghcr.io/YOUR_ORG/andy-wildlife-ui
+  tag: "1.0.0"
+  pullPolicy: Always
+
+# imagePullSecrets: names of Kubernetes secrets of type kubernetes.io/dockerconfigjson.
+# Example: imagePullSecrets: [{name: ghcr-creds}]
+imagePullSecrets: []
+
+replicaCount: 2
+
+service:
+  # Port exposed by the Kubernetes Service (cluster-internal).
+  # 80 matches the default Ingress backend port.
+  port: 80
+
+ingress:
+  enabled: true
+  className: traefik
+  host: andyswildlife.com
+  # Optional annotations — example for cert-manager TLS:
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: letsencrypt-prod
+  annotations: {}
+  # Optional TLS — example:
+  #   tls:
+  #     - hosts: [andyswildlife.com]
+  #       secretName: andy-wildlife-ui-tls
+  tls: []
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+# NetworkPolicy: deny-all with targeted allows.
+# Set enabled=true once you have verified your CNI supports NetworkPolicy
+# (Calico, Cilium, Weave Net, etc.). Misconfigured policies silently drop
+# traffic — opt in explicitly.
+networkPolicy:
+  enabled: false

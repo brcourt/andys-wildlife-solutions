@@ -1,5 +1,19 @@
 import { servicesData } from '../../data/services'
 import { ServiceCard } from '../ui/ServiceCard'
+import serviceWildlife from '../../assets/service-wildlife.jpg'
+import serviceSnake from '../../assets/service-snake.jpg'
+import serviceRodent from '../../assets/service-rodent.jpg'
+import serviceRepair from '../../assets/service-repair.jpg'
+import serviceCleanup from '../../assets/service-cleanup.jpg'
+import serviceNotsure from '../../assets/service-notsure.jpg'
+
+const serviceImages: Record<string, string> = {
+  'wildlife-removal': serviceWildlife,
+  'snake-removal': serviceSnake,
+  'rodent-control': serviceRodent,
+  'damage-repair': serviceRepair,
+  'cleanup': serviceCleanup,
+}
 
 export function ServicesGrid() {
   return (
@@ -15,6 +29,7 @@ export function ServicesGrid() {
               title={s.title}
               description={s.animals.map(a => a.name).join(', ')}
               to={`/services/${s.slug}`}
+              imageSrc={serviceImages[s.slug]}
             />
           ))}
           <ServiceCard
@@ -22,7 +37,7 @@ export function ServicesGrid() {
             title="Not Sure?"
             description="Call us — we'll help identify the problem"
             to="/contact"
-            highlight
+            imageSrc={serviceNotsure}
           />
         </div>
       </div>

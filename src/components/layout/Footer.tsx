@@ -3,7 +3,7 @@ import { COMPANY } from '../../config'
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 text-sm">
+    <footer className="bg-charcoal text-gray-400 text-sm">
       <div className="max-w-6xl mx-auto px-4 py-10 grid sm:grid-cols-3 gap-8">
         <div>
           <p className="text-white font-bold text-base mb-2">🐾 {COMPANY.name}</p>

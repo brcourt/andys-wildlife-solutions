@@ -6,9 +6,31 @@ interface ServiceCardProps {
   description: string
   to: string
   highlight?: boolean
+  imageSrc?: string
 }
 
-export function ServiceCard({ emoji, title, description, to, highlight = false }: ServiceCardProps) {
+export function ServiceCard({ emoji, title, description, to, highlight = false, imageSrc }: ServiceCardProps) {
+  if (imageSrc) {
+    return (
+      <Link
+        to={to}
+        className="block relative rounded-xl overflow-hidden aspect-[4/3] group shadow-md hover:shadow-xl transition-shadow"
+      >
+        <img
+          src={imageSrc}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Gradient overlay: heavy at bottom for text, lighter at top */}
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/50 to-forest-dark/10" />
+        <div className="absolute inset-x-0 bottom-0 p-4">
+          <p className="text-white font-bold text-sm uppercase tracking-wide leading-tight">{title}</p>
+          <p className="text-white/70 text-xs mt-1 leading-relaxed">{description}</p>
+        </div>
+      </Link>
+    )
+  }
+
   return (
     <Link
       to={to}

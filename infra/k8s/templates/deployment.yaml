@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "andy-wildlife-ui.fullname" . }}
+  labels:
+    {{- include "andy-wildlife-ui.labels" . | nindent 4 }}
+    app.kubernetes.io/component: ui
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "andy-wildlife-ui.name" . }}
+      app.kubernetes.io/component: ui
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "andy-wildlife-ui.name" . }}
+        app.kubernetes.io/component: ui
+    spec:
+      # Give the kubelet 30s after SIGTERM before SIGKILL. Combined with the
+      # preStop sleep, this lets the Service endpoints controller drain the pod
+      # from rotation before nginx stops accepting connections.
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: {{ include "andy-wildlife-ui.fullname" . }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: {{ include "andy-wildlife-ui.name" . }}
+              app.kubernetes.io/component: ui
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+        runAsGroup: 101
+        fsGroup: 101
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+        # nginx-unprivileged needs writable dirs for pid file and proxy cache
+        # even when readOnlyRootFilesystem: true is set.
+        - name: nginx-cache
+          emptyDir: {}
+        - name: nginx-run
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+        # Custom nginx config — mounts over the default nginx.conf so we can
+        # control caching, security headers, and SPA routing without rebuilding.
+        - name: nginx-conf
+          configMap:
+            name: {{ include "andy-wildlife-ui.fullname" . }}-nginx-conf
+      containers:
+        - name: ui
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          volumeMounts:
+            - name: nginx-cache
+              mountPath: /var/cache/nginx
+            - name: nginx-run
+              mountPath: /var/run
+            - name: tmp
+              mountPath: /tmp
+            - name: nginx-conf
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: nginx.conf
+              readOnly: true
+          ports:
+            - containerPort: 8080
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          lifecycle:
+            preStop:
+              # Wait for the Service endpoints controller to remove this pod
+              # from the Endpoints object before nginx starts draining.
+              exec:
+                command: ["sleep", "5"]
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
