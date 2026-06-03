@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { COMPANY } from '../../config'
 import { servicesData } from '../../data/services'
+import logoSrc from '../../assets/logo.png'
 
 export function Nav() {
   const [open, setOpen] = useState(false)
@@ -9,11 +10,11 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 bg-forest-dark shadow-md">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-white font-bold text-lg flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span>🐾</span>
-          <span className="hidden sm:inline">{COMPANY.name}</span>
+        <Link to="/" className="text-white font-bold text-lg flex items-center gap-3" onClick={() => setOpen(false)}>
+          <img src={logoSrc} alt="" className="h-16 w-auto drop-shadow-sm" />
+          <span className="hidden sm:inline leading-tight">{COMPANY.name}</span>
           <span className="sm:hidden">{COMPANY.shortName}</span>
         </Link>
 
