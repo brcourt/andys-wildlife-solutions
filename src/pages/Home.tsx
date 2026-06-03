@@ -1,4 +1,5 @@
 import { COMPANY } from '../config'
+import heroImage from '../assets/hero.jpg'
 import { Hero } from '../components/sections/Hero'
 import { TrustBar } from '../components/sections/TrustBar'
 import { ServicesGrid } from '../components/sections/ServicesGrid'
@@ -14,6 +15,7 @@ export function Home() {
         variant="home"
         headline="Protecting Your Home."
         subheadline={`Restoring your peace of mind — we humanely remove unwanted wildlife and seal your home to keep them out for good. Serving ${COMPANY.serviceArea}.`}
+        imageSrc={heroImage}
       />
       <TrustBar />
       <ServicesGrid />

@@ -6,20 +6,37 @@ interface HeroProps {
   headline: string
   subheadline: string
   breadcrumb?: string
+  imageSrc?: string
 }
 
-export function Hero({ variant, headline, subheadline, breadcrumb }: HeroProps) {
+export function Hero({ variant, headline, subheadline, breadcrumb, imageSrc }: HeroProps) {
   const isHome = variant === 'home'
   return (
-    <section className="bg-gradient-to-br from-forest-green to-forest-dark text-white">
-      <div className={`max-w-6xl mx-auto px-4 text-center ${isHome ? 'py-20' : 'py-12'}`}>
+    <section className="relative text-white overflow-hidden">
+      {/* Background: image or gradient */}
+      {imageSrc ? (
+        <>
+          <img
+            src={imageSrc}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          {/* Gradient overlay: dark on left where text sits, lighter on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/90 via-forest-dark/70 to-forest-dark/40" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-forest-green to-forest-dark" />
+      )}
+
+      {/* Content */}
+      <div className={`relative z-10 max-w-6xl mx-auto px-4 ${isHome ? 'py-28 text-left max-w-3xl' : 'py-12 text-center'}`}>
         {breadcrumb && (
           <p className="text-white/60 text-xs uppercase tracking-widest mb-3">{breadcrumb}</p>
         )}
         {isHome && (
           <p className="text-white/70 text-sm uppercase tracking-widest mb-4">Serving {COMPANY.serviceArea}</p>
         )}
-        <h1 className={`font-bold leading-tight mb-3 ${isHome ? 'text-5xl sm:text-6xl' : 'text-3xl sm:text-4xl'}`}>
+        <h1 className={`font-bold leading-tight mb-3 ${isHome ? 'text-5xl sm:text-6xl lg:text-7xl' : 'text-3xl sm:text-4xl'}`}>
           {headline}
         </h1>
         {isHome && (
@@ -27,10 +44,10 @@ export function Hero({ variant, headline, subheadline, breadcrumb }: HeroProps) 
             Locally Owned · Community Focused
           </div>
         )}
-        <p className={`text-white/85 mb-8 max-w-xl mx-auto ${isHome ? 'text-lg' : 'text-base'}`}>
+        <p className={`text-white/85 mb-8 ${isHome ? 'text-lg max-w-lg' : 'text-base max-w-xl mx-auto'}`}>
           {subheadline}
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className={`flex flex-col sm:flex-row gap-3 ${isHome ? '' : 'justify-center'}`}>
           <Button href={COMPANY.phoneHref} variant="primary" className="text-base px-8 py-4">
             📞 Call Now: {COMPANY.phone}
           </Button>
