@@ -29,8 +29,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800 text-center text-xs py-4 text-gray-600">
-        © {new Date().getFullYear()} {COMPANY.name} · Licensed & Insured · {COMPANY.city}, {COMPANY.state} ·{' '}
-        <Link to="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>
+        © {new Date().getFullYear()} {COMPANY.name} · Licensed & Insured · {COMPANY.city}, {COMPANY.state}
       </div>
     </footer>
   )

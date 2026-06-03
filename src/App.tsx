@@ -11,6 +11,7 @@ import { Cleanup } from './pages/Cleanup'
 import { About } from './pages/About'
 import { FAQ } from './pages/FAQ'
 import { Contact } from './pages/Contact'
+import { NotFound } from './pages/NotFound'
 
 function Layout() {
   return (
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: '/about', element: <About /> },
       { path: '/faq', element: <FAQ /> },
       { path: '/contact', element: <Contact /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])

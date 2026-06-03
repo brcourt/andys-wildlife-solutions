@@ -11,7 +11,7 @@ interface ServicePageProps {
 
 export function ServicePage({ service }: ServicePageProps) {
   return (
-    <>
+    <main>
       <Hero
         variant="service"
         headline={service.title}
@@ -74,6 +74,6 @@ export function ServicePage({ service }: ServicePageProps) {
         headline={service.ctaBandHeadline}
         subheadline={service.ctaBandSubheadline}
       />
-    </>
+    </main>
   )
 }

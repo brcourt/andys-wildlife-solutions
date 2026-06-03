@@ -1,3 +1,4 @@
+import { COMPANY } from '../config'
 import { Hero } from '../components/sections/Hero'
 import { TrustBar } from '../components/sections/TrustBar'
 import { ServicesGrid } from '../components/sections/ServicesGrid'
@@ -8,11 +9,11 @@ import { CtaBand } from '../components/sections/CtaBand'
 
 export function Home() {
   return (
-    <>
+    <main>
       <Hero
         variant="home"
         headline="Wildlife Problems? We've Got You Covered."
-        subheadline="Licensed & insured removal of raccoons, squirrels, snakes, rodents, and more. Serving [City] & surrounding areas."
+        subheadline={`Licensed & insured removal of raccoons, squirrels, snakes, rodents, and more. Serving ${COMPANY.serviceArea}.`}
       />
       <TrustBar />
       <ServicesGrid />
@@ -23,6 +24,6 @@ export function Home() {
         headline="Ready to Get Rid of the Problem?"
         subheadline="Most jobs scheduled within 24–48 hours. Call now for a free phone consultation."
       />
-    </>
+    </main>
   )
 }

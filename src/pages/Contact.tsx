@@ -25,9 +25,9 @@ export function Contact() {
   )
 
   return (
-    <>
+    <main>
       <section className="bg-forest-dark text-white py-16">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Contact Andy's Wildlife Solutions</h1>
           <p className="text-lg">
             Give us a call or send a message — we'll get back to you quickly.
@@ -36,7 +36,7 @@ export function Contact() {
       </section>
 
       <section className="bg-white py-16">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="max-w-5xl mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left column — Contact Info */}
             <div>
@@ -104,7 +104,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="bg-forest-dark text-white font-semibold py-3 px-6 rounded hover:bg-forest transition-colors disabled:opacity-50"
+                    className="bg-forest-dark text-white font-semibold py-3 px-6 rounded hover:bg-forest-green transition-colors disabled:opacity-50"
                   >
                     Send Message
                   </button>
@@ -114,6 +114,6 @@ export function Contact() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }

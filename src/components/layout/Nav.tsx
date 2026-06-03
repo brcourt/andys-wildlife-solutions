@@ -18,7 +18,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-white/90">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6 text-sm text-white/90">
           {/* Services dropdown */}
           <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
             <button className="flex items-center gap-1 hover:text-white transition-colors py-2">
