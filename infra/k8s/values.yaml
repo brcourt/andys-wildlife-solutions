@@ -1,6 +1,6 @@
 image:
   # Pin to a specific release tag. Never deploy :latest to a cluster.
-  repository: ghcr.io/YOUR_ORG/andy-wildlife-ui
+  repository: ghcr.io/brcourt/andys-wildlife-solutions
   tag: "1.0.0"
   pullPolicy: Always
 
