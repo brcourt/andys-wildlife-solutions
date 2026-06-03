@@ -1,0 +1,168 @@
+import type { ServiceData } from '../types'
+
+export const servicesData: ServiceData[] = [
+  {
+    slug: 'wildlife-removal',
+    title: 'Wildlife Removal',
+    emoji: '🦝',
+    heroDescription: 'Safe, professional removal of raccoons, squirrels, and opossums from your home or property.',
+    animalsLabel: 'Animals We Remove',
+    animals: [
+      { emoji: '🦝', name: 'Raccoons' },
+      { emoji: '🐿️', name: 'Squirrels' },
+      { emoji: '🐾', name: 'Opossums' },
+    ],
+    warningSignsLabel: 'Signs You Have a Problem',
+    warningSigns: [
+      { emoji: '👂', text: 'Scratching, thumping, or chattering sounds in walls or attic' },
+      { emoji: '💩', text: 'Droppings in your attic, basement, or around the exterior' },
+      { emoji: '👃', text: 'Unusual musky odors coming from walls or crawl spaces' },
+      { emoji: '🕳️', text: 'Damage to soffits, roof edges, or vents' },
+    ],
+    processSteps: [
+      { number: 1, title: 'Inspection', description: 'We inspect your property to identify entry points, nesting areas, and the specific animal involved.' },
+      { number: 2, title: 'Removal', description: 'Animals are removed using trapping or exclusion methods based on the situation and your preference.' },
+      { number: 3, title: 'Exclusion', description: 'Every entry point is sealed so animals cannot re-enter your home.' },
+      { number: 4, title: 'Repair & Cleanup (Optional)', description: 'We can repair structural damage and decontaminate affected areas as a follow-up service.', isOptional: true },
+    ],
+    beforeAfter: {
+      beforeAlt: 'Raccoon entry point in soffit before repair',
+      afterAlt: 'Sealed and repaired soffit after raccoon removal',
+      caption: 'Raccoon entry point — before and after exclusion',
+    },
+    ctaBandHeadline: 'Hear something in your attic?',
+    ctaBandSubheadline: "Don't wait — call Andy today for a fast assessment.",
+  },
+  {
+    slug: 'snake-removal',
+    title: 'Snake Removal',
+    emoji: '🐍',
+    heroDescription: 'Safe removal of non-venomous snakes and reptiles from your home, garage, or yard.',
+    animalsLabel: 'Species We Handle',
+    animals: [
+      { emoji: '🐍', name: 'Non-Venomous Snakes' },
+      { emoji: '🦎', name: 'Reptiles' },
+    ],
+    warningSignsLabel: 'Signs You May Have Snakes',
+    warningSigns: [
+      { emoji: '🐍', text: 'Snake sightings inside or near your home' },
+      { emoji: '🧦', text: 'Shed snake skins in the basement, garage, or crawl space' },
+      { emoji: '🐭', text: 'Increased rodent activity — snakes follow their food source' },
+      { emoji: '🕳️', text: 'Gaps or cracks in the foundation or around pipes' },
+    ],
+    processSteps: [
+      { number: 1, title: 'Assessment', description: 'We identify the species and locate where the snake is sheltering or entering.' },
+      { number: 2, title: 'Safe Removal', description: 'Snakes are captured and removed safely — no harm to you or the animal.' },
+      { number: 3, title: 'Entry Point Sealing', description: 'We seal gaps and entry points that allowed access to your home.' },
+      { number: 4, title: 'Prevention Tips', description: 'We advise on yard modifications that make your property less attractive to snakes.' },
+    ],
+    beforeAfter: {
+      beforeAlt: 'Snake sheltering under debris in garage before removal',
+      afterAlt: 'Clean, sealed garage after snake removal',
+      caption: 'Garage snake removal — before and after',
+    },
+    ctaBandHeadline: 'Found a snake in your home?',
+    ctaBandSubheadline: 'Stay calm and call Andy — we handle it quickly and safely.',
+  },
+  {
+    slug: 'rodent-control',
+    title: 'Rodent Control',
+    emoji: '🐭',
+    heroDescription: 'Complete mice and rat removal — trapping, sealing entry points, and cleanup.',
+    animalsLabel: 'Rodents We Remove',
+    animals: [
+      { emoji: '🐭', name: 'Mice' },
+      { emoji: '🐀', name: 'Rats' },
+    ],
+    warningSignsLabel: 'Signs of a Rodent Problem',
+    warningSigns: [
+      { emoji: '💩', text: 'Small droppings along walls, in cabinets, or near food storage' },
+      { emoji: '🦷', text: 'Gnaw marks on wood, wiring, or food packaging' },
+      { emoji: '👂', text: 'Scratching or squeaking sounds in walls at night' },
+      { emoji: '🏚️', text: 'Shredded paper, insulation, or fabric used as nesting material' },
+    ],
+    processSteps: [
+      { number: 1, title: 'Inspection', description: 'We locate nesting sites, active runways, and all entry points inside and outside your home.' },
+      { number: 2, title: 'Trapping', description: 'Strategic trap placement to eliminate the current population quickly.' },
+      { number: 3, title: 'Entry Point Sealing', description: 'Every gap larger than a dime is sealed — mice can fit through openings smaller than a pencil eraser.' },
+      { number: 4, title: 'Cleanup Recommendation', description: 'Rodent droppings carry disease. We recommend our cleanup service for affected areas.', isOptional: true },
+    ],
+    beforeAfter: {
+      beforeAlt: 'Rodent entry point in wall before sealing',
+      afterAlt: 'Sealed wall entry point after rodent control',
+      caption: 'Rodent entry point — identified and sealed',
+    },
+    ctaBandHeadline: 'Hearing things in your walls at night?',
+    ctaBandSubheadline: 'Call Andy — fast, thorough rodent removal.',
+  },
+  {
+    slug: 'damage-repair',
+    title: 'Damage Repair',
+    emoji: '🔨',
+    heroDescription: 'Professional repair of structural damage caused by wildlife — from attic insulation to soffits and vents.',
+    animalsLabel: 'What We Repair',
+    animals: [
+      { emoji: '🏠', name: 'Attic Insulation' },
+      { emoji: '🪵', name: 'Soffits & Fascia' },
+      { emoji: '🔲', name: 'Vents & Screens' },
+      { emoji: '🧱', name: 'Drywall & Wood' },
+    ],
+    warningSignsLabel: 'Common Types of Wildlife Damage',
+    warningSigns: [
+      { emoji: '🏠', text: 'Compressed or contaminated attic insulation reducing energy efficiency' },
+      { emoji: '⚡', text: 'Chewed electrical wiring — a serious fire hazard' },
+      { emoji: '🪵', text: 'Torn or bent soffit panels and damaged fascia boards' },
+      { emoji: '🔲', text: 'Ripped vent screens or compromised roof vents used as entry points' },
+    ],
+    processSteps: [
+      { number: 1, title: 'Damage Assessment', description: 'We inspect all areas affected by wildlife activity and document the damage.' },
+      { number: 2, title: 'Estimate', description: "You receive a clear, written estimate before any work begins — no surprises." },
+      { number: 3, title: 'Repair Work', description: 'Our team completes all repairs using materials that match your home and resist future animal entry.' },
+      { number: 4, title: 'Final Inspection', description: 'We walk through the repaired areas with you to ensure everything meets your expectations.' },
+    ],
+    beforeAfter: {
+      beforeAlt: 'Damaged attic insulation before repair',
+      afterAlt: 'Replaced attic insulation after wildlife removal',
+      caption: 'Attic insulation — damaged and replaced',
+    },
+    ctaBandHeadline: 'Wildlife left a mess behind?',
+    ctaBandSubheadline: "We handle the repairs — one call covers removal and restoration.",
+  },
+  {
+    slug: 'cleanup',
+    title: 'Cleanup & Decontamination',
+    emoji: '🧹',
+    heroDescription: 'Safe removal of animal waste, nesting material, and odors after wildlife activity in your home.',
+    animalsLabel: 'What We Clean',
+    animals: [
+      { emoji: '💩', name: 'Animal Waste Removal' },
+      { emoji: '🪹', name: 'Nesting Material' },
+      { emoji: '💨', name: 'Odor Treatment' },
+      { emoji: '🏠', name: 'Attic Restoration' },
+    ],
+    warningSignsLabel: 'What Our Cleanup Service Covers',
+    warningSigns: [
+      { emoji: '💩', text: 'Removal of fecal matter and contaminated insulation' },
+      { emoji: '💧', text: 'Urine decontamination and moisture treatment' },
+      { emoji: '🪹', text: 'Full removal of nesting debris from attics and crawl spaces' },
+      { emoji: '💨', text: 'Professional deodorization — eliminating odors at the source' },
+    ],
+    processSteps: [
+      { number: 1, title: 'Assessment', description: 'We assess the full extent of contamination and identify all affected areas.' },
+      { number: 2, title: 'Waste & Nesting Removal', description: 'All fecal matter, urine-soaked materials, and nesting debris are removed and safely disposed of.' },
+      { number: 3, title: 'Disinfection', description: 'Affected surfaces are treated with EPA-approved disinfectants to eliminate bacteria and pathogens.' },
+      { number: 4, title: 'Deodorization', description: 'We apply professional deodorizing agents to neutralize odors — not just mask them.' },
+    ],
+    beforeAfter: {
+      beforeAlt: 'Contaminated attic before cleanup',
+      afterAlt: 'Clean, decontaminated attic after service',
+      caption: 'Attic cleanup and decontamination',
+    },
+    ctaBandHeadline: 'Animal waste is a health hazard.',
+    ctaBandSubheadline: "Don't wait — let Andy's team clean and decontaminate safely.",
+  },
+]
+
+export function getServiceBySlug(slug: string): ServiceData | undefined {
+  return servicesData.find(s => s.slug === slug)
+}
