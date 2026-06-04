@@ -12,10 +12,9 @@ export function Nav() {
     <header className="sticky top-0 z-50 bg-forest-dark shadow-md">
       <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-white font-bold text-lg flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logoSrc} alt="" className="h-16 w-auto drop-shadow-sm" />
-          <span className="hidden sm:inline leading-tight">{COMPANY.name}</span>
-          <span className="sm:hidden">{COMPANY.shortName}</span>
+        <Link to="/" className="text-white font-bold text-lg flex sm:flex-row flex-col items-center sm:gap-3 gap-0.5" onClick={() => setOpen(false)}>
+          <img src={logoSrc} alt="" className="h-10 sm:h-16 w-auto drop-shadow-sm" />
+          <span className="leading-tight text-center text-sm sm:text-lg">{COMPANY.name}</span>
         </Link>
 
         {/* Desktop nav */}
@@ -55,7 +54,7 @@ export function Nav() {
           </a>
           <button
             aria-label="Toggle menu"
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 text-2xl"
             onClick={() => setOpen(o => !o)}
           >
             {open ? '✕' : '☰'}
