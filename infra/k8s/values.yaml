@@ -43,3 +43,13 @@ resources:
 # traffic — opt in explicitly.
 networkPolicy:
   enabled: false
+
+# Istio edge (replaces the Traefik Ingress). The app owns its ListenerSet +
+# HTTPRoute + Certificate on the shared parent Gateway in istio-system.
+edge:
+  enabled: true
+  gatewayName: edge
+  gatewayNamespace: istio-system
+  tlsSecret: andy-wildlife-ui-tls
+  issueCert: true
+  issuerName: letsencrypt-prod
