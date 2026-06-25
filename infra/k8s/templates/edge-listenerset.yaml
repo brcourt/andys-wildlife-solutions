@@ -17,12 +17,10 @@ spec:
   listeners:
     - name: {{ include "andy-wildlife-ui.name" . }}
       hostname: {{ .Values.ingress.host | quote }}
-      port: 443
-      protocol: HTTPS
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - { group: "", kind: Secret, name: {{ .Values.edge.tlsSecret }} }
+      # WAF cutover (2026-06-25): TLS now terminates at the Caddy+Coraza edge in
+      # front of the Istio gateway, which routes this host on plain HTTP.
+      port: 80
+      protocol: HTTP
       allowedRoutes:
         namespaces:
           from: Same
