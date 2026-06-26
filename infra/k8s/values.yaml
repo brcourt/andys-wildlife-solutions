@@ -51,5 +51,5 @@ edge:
   gatewayName: edge
   gatewayNamespace: istio-system
   tlsSecret: andy-wildlife-ui-tls
-  issueCert: true
+  issueCert: false  # WAF cutover 2026-06-25: Caddy WAF owns edge TLS; cert-manager Cert retired
   issuerName: letsencrypt-prod
