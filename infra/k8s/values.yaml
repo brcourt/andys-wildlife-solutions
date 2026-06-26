@@ -16,7 +16,7 @@ service:
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false  # WAF/Istio cutover 2026-06-25: inert traefik Ingress retired (routing via Caddy->Istio; this also stops ingress-shim from recreating the edge cert)
   className: traefik
   host: andyswildlife.com
   # Optional annotations — example for cert-manager TLS:
